@@ -17,8 +17,8 @@ SOFT_VERSION = '2013-12-26'
 
 
 class SmsBackend(BaseSmsBackend):
-    def __init__(self, fail_silently=False):
-        super().__init__(fail_silently=fail_silently)
+    def __init__(self, fail_silently=False, **kwargs):
+        super().__init__(fail_silently=fail_silently, **kwargs)
         self.rest = REST(ServerIP=SERVER_IP, ServerPort=SERVER_PORT, SoftVersion=SOFT_VERSION)
         self.rest.setAccount(AccountSid=ACCOUNT_SID, AccountToken=ACCOUNT_TOKEN)
         self.rest.setAppId(AppId=APP_ID)
