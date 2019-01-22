@@ -61,12 +61,12 @@ class RQBackendTest(SimpleTestCase):
         from sendsms.message import SmsMessage
 
         with self.settings(SENDSMS_BACKEND='sendsms.backends.rq.SmsBackend'):
-                message = SmsMessage(
-                    body='Hello!',
-                    from_phone='29290',
-                    to=['+639123456789']
-                )
-                message.send()
+            message = SmsMessage(
+                body='Hello!',
+                from_phone='29290',
+                to=['+639123456789']
+            )
+            message.send()
 
         send_messages_mock.delay.assert_called_with([message])
 
@@ -109,12 +109,12 @@ class CeleryBackendTest(SimpleTestCase):
         from sendsms.message import SmsMessage
 
         with self.settings(SENDSMS_BACKEND='sendsms.backends.celery.SmsBackend'):
-                message = SmsMessage(
-                    body='Hello!',
-                    from_phone='29290',
-                    to=['+639123456789']
-                )
-                message.send()
+            message = SmsMessage(
+                body='Hello!',
+                from_phone='29290',
+                to=['+639123456789']
+            )
+            message.send()
 
         send_messages_mock.delay.assert_called_with([message])
 
@@ -148,6 +148,19 @@ class CeleryBackendTest(SimpleTestCase):
                 )
                 celery.send_messages([message])
                 backend.send_messages.assert_called_once_with([message])
+
+
+class YuntongxunBackendTest(SimpleTestCase):
+
+    def test_send_message(self):
+        from sendsms.message import SmsMessage
+        with self.settings(SENDSMS_BACKEND='sendsms.backends.yutongxun.SmsBackend'):
+            body = {
+                'template_id': '185733',
+                'datas': ['潘运来', '20', '迪康基因']
+            }
+            obj = SmsMessage(body=body, from_phone='', to=['17798553635'])
+            obj.send()
 
 
 if __name__ == '__main__':

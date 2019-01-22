@@ -65,6 +65,23 @@ Creating custom ``SmsBackend`` s::
 
 Then all you need to do is reference your backend in the ``SENDSMS_BACKEND`` setting.
 
+云通信短信服务
+=============
+    ::
+
+    SENDSMS_BACKEND = 'myapp.mysmsbackend.SmsBackend'
+
+
+    from sendsms import api
+
+    body = {
+        'template_id': '<template id>',
+
+        'datas': ['<data1>', '<data2>', '<data3>']
+    }
+
+    api.send_sms(body=body, from_phone='', to=['+860123456789'])
+
 
 Running tests
 ===============
