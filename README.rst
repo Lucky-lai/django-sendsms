@@ -69,7 +69,7 @@ Then all you need to do is reference your backend in the ``SENDSMS_BACKEND`` set
 =============
     ::
 
-    SENDSMS_BACKEND = 'myapp.mysmsbackend.SmsBackend'
+    SENDSMS_BACKEND = 'sendsms.backends.yutongxun.SmsBackend'
 
 
     from sendsms import api

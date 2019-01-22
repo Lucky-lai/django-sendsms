@@ -154,7 +154,7 @@ class YuntongxunBackendTest(SimpleTestCase):
 
     def test_send_message(self):
         from sendsms.message import SmsMessage
-        with self.settings(SENDSMS_BACKEND='sendsms.backends.yutongxun.SmsBackend'):
+        with self.settings(SENDSMS_BACKEND='sendsms.backends.yuntongxun.SmsBackend'):
             body = {
                 'template_id': '185733',
                 'datas': ['潘运来', '20', '迪康基因']
