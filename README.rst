@@ -69,7 +69,10 @@ Then all you need to do is reference your backend in the ``SENDSMS_BACKEND`` set
 =============
     ::
 
-    SENDSMS_BACKEND = 'sendsms.backends.yutongxun.SmsBackend'
+    SENDSMS_BACKEND = 'sendsms.backends.yuntongxun.SmsBackend'
+    YUNTONGXUN_ACCOUNT_SID = ''
+    YUNTONGXUN_ACCOUNT_TOKEN = ''
+    YUNTONGXUN_APP_ID = ''
 
 
     from sendsms import api

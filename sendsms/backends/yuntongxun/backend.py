@@ -1,12 +1,13 @@
 from sendsms.backends.base import BaseSmsBackend
 from .CCPRestSDK import REST
+from django.conf import settings
 
 # 主帐号
-ACCOUNT_SID = '8aaf0708559f32dd0155b3b6ce8a0bee'
+ACCOUNT_SID = getattr(settings, 'YUNTONGXUN_ACCOUNT_SID')
 # 主帐号Token
-ACCOUNT_TOKEN = 'aceeb185e3894797ad55f6024f6c3992'
+ACCOUNT_TOKEN = getattr(settings, 'YUNTONGXUN_ACCOUNT_TOKEN')
 # 应用Id
-APP_ID = '8aaf0708582eefe901584379904d0f18'
+APP_ID = getattr(settings, 'YUNTONGXUN_APP_ID')
 # 请求地址，格式如下，不需要写http://
 SERVER_IP = 'app.cloopen.com'
 # 请求端口
