@@ -1,5 +1,5 @@
 from sendsms.backends.base import BaseSmsBackend
-from sendsms.backends.yuntongxun.CCPRestSDK import REST
+from sendsms.backends.yuntongxun.rest_sdk import REST
 from django.conf import settings
 
 # 主帐号
