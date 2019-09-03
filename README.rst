@@ -66,8 +66,9 @@ Creating custom ``SmsBackend`` s::
 Then all you need to do is reference your backend in the ``SENDSMS_BACKEND`` setting.
 
 云通信短信服务
-=============
-    ::
+===============
+
+create yuntongxun config::
 
     SENDSMS_BACKEND = 'sendsms.backends.yuntongxun.SmsBackend'
     YUNTONGXUN_ACCOUNT_SID = ''
@@ -86,8 +87,8 @@ Then all you need to do is reference your backend in the ``SENDSMS_BACKEND`` set
     api.send_sms(body=body, from_phone='', to=['+860123456789'])
 
 阿里云短信服务
-=============
-    ::
+===============
+create aliyun config::
 
     SENDSMS_BACKEND = 'sendsms.backends.aliyun.SmsBackend'
     ALIYUN_ACCESS_ID = ''
