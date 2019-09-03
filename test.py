@@ -163,5 +163,26 @@ class YuntongxunBackendTest(SimpleTestCase):
             obj.send()
 
 
+class AliyunBackendTest(SimpleTestCase):
+
+    def test_send_message(self):
+        from sendsms.message import SmsMessage
+        import json
+        with self.settings(SENDSMS_BACKEND='sendsms.backends.aliyun.SmsBackend',
+                           ALIYUN_ACCESS_ID='LTAI4Fs5mnQwbw1seSDFFSTc',
+                           ALIYUN_ACCESS_SECRET='0pSY02mWdcZqYZCuBHQQJy90AxEhFV',
+                           ALIYUN_REGION=''):
+            body = {
+                'template_id': 'SMS_58960014',
+                'datas': {"code": "1234", "product": "测试产品"},
+                'sign_name': '身份验证a'
+            }
+            obj = SmsMessage(body=body, from_phone='', to=['17368588130'])
+            res = obj.send()
+            json_res = json.loads(res)
+            print(json_res)
+            self.assertEqual(json_res['Message'], 'OK')
+
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)
