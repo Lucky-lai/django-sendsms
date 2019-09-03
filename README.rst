@@ -85,6 +85,26 @@ Then all you need to do is reference your backend in the ``SENDSMS_BACKEND`` set
 
     api.send_sms(body=body, from_phone='', to=['+860123456789'])
 
+阿里云短信服务
+=============
+    ::
+
+    SENDSMS_BACKEND = 'sendsms.backends.aliyun.SmsBackend'
+    ALIYUN_ACCESS_ID = ''
+    ALIYUN_ACCESS_SECRET = ''
+    ALIYUN_REGION = ''
+
+
+    from sendsms import api
+
+    body = {
+        'template_id': '<template id>',
+        'datas': {"code":"123"}
+        'sign_name':'<sign_name>'
+    }
+
+    api.send_sms(body=body, from_phone='', to=['+860123456789'])
+
 
 Running tests
 ===============
